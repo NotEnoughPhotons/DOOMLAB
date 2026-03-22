@@ -16,7 +16,12 @@
 # Mono auto generated files
 mono_crash.*
 
+# Generated files
+*.gen.cs
+
 # Build results
+[Ll]inks/
+[Oo]utput/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -29,8 +34,15 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+[Oo]utput/
 [Ll]og/
 [Ll]ogs/
+
+# Remove staging ZIP
+Staging/MonoDirector.zip
+
+# JetBrains IDE
+.idea/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
