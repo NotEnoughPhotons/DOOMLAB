@@ -40,9 +40,6 @@
     <Reference Include="MelonLoader">
       <HintPath>$(BONELAB_DIR)\MelonLoader\net6\MelonLoader.dll</HintPath>
     </Reference>
-    <Reference Include="NEDebug">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\BONELAB\Mods\NEDebug.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(BONELAB_DIR)\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
