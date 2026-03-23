@@ -3,6 +3,7 @@
 using NEP.DOOMLAB.Data;
 using NEP.DOOMLAB.Entities;
 using NEP.DOOMLAB.Game;
+using MelonLoader;
 
 namespace NEP.DOOMLAB.Rendering
 {
@@ -89,11 +90,23 @@ namespace NEP.DOOMLAB.Rendering
 
         public void UpdateSprite()
         {
-            
-            float angle = Vector3.SignedAngle(mobj.transform.forward, camera.transform.forward, Vector3.up);
-            angle = Mathf.Repeat(angle + 180f, 360f) - 180f;
-            int index = (int)((angle - (45 / 2) * 9) / 45) & 7;
-    
+            // Code from PoptartNoah
+            // Translated from LUA to C#
+            // Also modified to work with normalized angles instead of radians
+            Vector3 camPos = camera.transform.position;
+            Vector3 mobjPos = mobj.transform.position;
+
+            float angDeg = mobj.transform.eulerAngles.y;
+
+            float dx = camPos.x - mobjPos.x;
+            float dz = camPos.z - mobjPos.z;
+
+            float viewRad = Mathf.Atan2(dz, dx);
+            float viewAng = Mathf.Repeat(viewRad * Mathf.Rad2Deg, 360f);
+            float actorAng = 90f - angDeg;
+            float rel = Mathf.Repeat(actorAng - viewAng, 360f);
+            int oct = Mathf.FloorToInt(rel / 45f) % 8;
+
             int stateFrame = mobj.frame;
 
             if (mobj.frame >= 32768)
@@ -123,7 +136,7 @@ namespace NEP.DOOMLAB.Rendering
                 return;
             }
 
-            SetSprite(spriteFrame, index);
+            SetSprite(spriteFrame, oct);
         }
 
         private void SetSprite(SpriteFrame spriteFrame, int rotation)
