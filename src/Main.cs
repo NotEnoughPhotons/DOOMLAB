@@ -26,7 +26,7 @@ namespace NEP.DOOMLAB
         public const string Description = "Hell has encroached into MythOS. Pick up Doomguy's skills and slay endless demons."; // Description for the Mod.  (Set as null if none)
         public const string Author = "Not Enough Photons, adamdev"; // Author of the Mod.  (MUST BE SET)
         public const string Company = "Not Enough Photons"; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "0.1.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "1.1.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
     }
 
